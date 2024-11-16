@@ -1,24 +1,29 @@
 package net.prizowo.examplemod.client;
 
-import net.minecraft.client.renderer.entity.BeeRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.prizowo.examplemod.Examplemod;
-import net.prizowo.examplemod.registry.entity.ModEntityTypes;
+import net.prizowo.examplemod.client.renderer.OrbitalBlockEntityRenderer;
+import net.prizowo.examplemod.init.ModBlockEntities;
 
 @EventBusSubscriber(modid = Examplemod.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientSetup {
-    
     @SubscribeEvent
-    public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(ModEntityTypes.RIDEABLE_BEE.get(), BeeRenderer::new);
+    public static void onClientSetup(FMLClientSetupEvent event) {
+        event.enqueueWork(() -> {
+            BlockEntityRenderers.register(ModBlockEntities.ORBITAL_BLOCK_ENTITY.get(), OrbitalBlockEntityRenderer::new);
+        });
     }
 
     @SubscribeEvent
-    public static void registerBindings(RegisterKeyMappingsEvent event) {
+    public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
         event.register(KeyBindings.DESCEND_KEY);
+        event.register(KeyBindings.SPEED_DOWN);
+        event.register(KeyBindings.SPEED_UP);
     }
 } 

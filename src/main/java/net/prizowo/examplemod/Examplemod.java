@@ -8,6 +8,9 @@ import net.prizowo.examplemod.entity.RideableBee;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.api.distmarker.Dist;
+import net.prizowo.examplemod.init.ModBlockEntities;
+import net.prizowo.examplemod.init.ModBlocks;
+import net.prizowo.examplemod.init.ModItems;
 import net.prizowo.examplemod.network.NetworkHandler;
 import net.prizowo.examplemod.registry.entity.ModEntityTypes;
 
@@ -16,11 +19,12 @@ public class Examplemod {
     public static final String MODID = "examplemod";
 
     public Examplemod(IEventBus modEventBus) {
+        ModBlocks.BLOCKS.register(modEventBus);
+        ModItems.ITEMS.register(modEventBus);
+        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         ModEntityTypes.ENTITY_TYPES.register(modEventBus);
-        
         modEventBus.addListener(this::registerEntityAttributes);
         modEventBus.register(NetworkHandler.class);
-        
 
         if (FMLEnvironment.dist == Dist.CLIENT) {
             modEventBus.register(ClientSetup.class);
