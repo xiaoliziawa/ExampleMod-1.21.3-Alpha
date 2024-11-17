@@ -25,6 +25,15 @@ public class ModItems {
             )
     );
 
+    public static final Supplier<Item> BINARY_BLACK_HOLE_BLOCK_ITEM = ITEMS.register(
+            "binary_black_hole_block",
+            () -> new BlockItem(ModBlocks.BINARY_BLACK_HOLE_BLOCK.get(),
+                    new Item.Properties()
+                            .setId(ResourceKey.create(Registries.ITEM,
+                                    ResourceLocation.fromNamespaceAndPath(Examplemod.MODID, "binary_black_hole_block")))
+            )
+    );
+
     public static void register(IEventBus modEventBus) {
         ITEMS.register(modEventBus);
     }

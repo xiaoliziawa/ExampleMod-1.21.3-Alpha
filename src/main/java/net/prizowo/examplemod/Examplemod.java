@@ -19,9 +19,9 @@ public class Examplemod {
     public static final String MODID = "examplemod";
 
     public Examplemod(IEventBus modEventBus) {
-        ModBlocks.BLOCKS.register(modEventBus);
-        ModItems.ITEMS.register(modEventBus);
-        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        ModItems.register(modEventBus);
         ModEntityTypes.ENTITY_TYPES.register(modEventBus);
         modEventBus.addListener(this::registerEntityAttributes);
         modEventBus.register(NetworkHandler.class);

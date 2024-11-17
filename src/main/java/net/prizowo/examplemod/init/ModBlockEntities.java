@@ -6,18 +6,26 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.prizowo.examplemod.Examplemod;
 import net.prizowo.examplemod.block.entity.OrbitalBlockEntity;
+import net.prizowo.examplemod.block.entity.BinaryBlackHoleBlockEntity;
 
 import java.util.function.Supplier;
 
 public class ModBlockEntities {
-    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = 
-        DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Examplemod.MODID);
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Examplemod.MODID);
 
     public static final Supplier<BlockEntityType<OrbitalBlockEntity>> ORBITAL_BLOCK_ENTITY = 
         BLOCK_ENTITIES.register("orbital_block",
             () -> new BlockEntityType<>(
                     OrbitalBlockEntity::new,
                 ModBlocks.ORBITAL_BLOCK.get()
+            )
+        );
+
+    public static final Supplier<BlockEntityType<BinaryBlackHoleBlockEntity>> BINARY_BLACK_HOLE_BLOCK_ENTITY = 
+        BLOCK_ENTITIES.register("binary_black_hole_block",
+            () -> new BlockEntityType<>(
+                    BinaryBlackHoleBlockEntity::new,
+                ModBlocks.BINARY_BLACK_HOLE_BLOCK.get()
             )
         );
 

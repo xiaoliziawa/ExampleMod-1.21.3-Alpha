@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.prizowo.examplemod.block.entity.OrbitalBlockEntity;
 import net.prizowo.examplemod.init.ModBlockEntities;
-import net.prizowo.examplemod.network.OrbitalRenderPacket;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
@@ -28,23 +27,16 @@ public class OrbitalBlock extends BaseEntityBlock {
     protected @NotNull MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
     }
-
     @Nullable
     @Override
     public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
-        OrbitalBlockEntity blockEntity = new OrbitalBlockEntity(pos, state);
-        if (state.getBlock() == this) {
-            PacketDistributor.sendToAllPlayers(new OrbitalRenderPacket(pos));
-        }
-        return blockEntity;
+        return new OrbitalBlockEntity(pos, state);
     }
 
     @Override
     public void onPlace(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState oldState, boolean isMoving) {
         super.onPlace(state, level, pos, oldState, isMoving);
-        if (!level.isClientSide && state.getBlock() != oldState.getBlock()) {
-            PacketDistributor.sendToAllPlayers(new OrbitalRenderPacket(pos));
-        }
+
     }
 
     @Override
@@ -55,15 +47,14 @@ public class OrbitalBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level level, @NotNull BlockState state, @NotNull BlockEntityType<T> type) {
-        return createTickerHelper(type, ModBlockEntities.ORBITAL_BLOCK_ENTITY.get(), OrbitalBlockEntity::tick);
+        return level.isClientSide ? 
+            createTickerHelper(type, ModBlockEntities.ORBITAL_BLOCK_ENTITY.get(), OrbitalBlockEntity::tick) : 
+            null;  // 服务端返回null，不执行tick
     }
 
     @Override
     public void onRemove(BlockState state, @NotNull Level level, @NotNull BlockPos pos, BlockState newState, boolean movedByPiston) {
         if (!state.is(newState.getBlock())) {
-            if (level.getBlockEntity(pos) instanceof OrbitalBlockEntity orbital) {
-                orbital.setForceRender(false);
-            }
             super.onRemove(state, level, pos, newState, movedByPiston);
         }
     }

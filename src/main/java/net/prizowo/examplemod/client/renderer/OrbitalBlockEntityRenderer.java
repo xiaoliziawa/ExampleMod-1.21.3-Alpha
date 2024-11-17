@@ -114,7 +114,7 @@ public class OrbitalBlockEntityRenderer implements BlockEntityRenderer<OrbitalBl
             poseStack.translate(0.5, 0.5, 0.5);
             
             // 计算小行星位置
-            float angle = asteroid.getAngle() + (partialTick * asteroid.getSpeed());
+            float angle = (float) (asteroid.getAngle() + (partialTick * asteroid.getSpeed()));
             float x = (float) (Math.cos(angle) * asteroid.getOrbitRadius());
             float z = (float) (Math.sin(angle) * asteroid.getOrbitRadius());
             

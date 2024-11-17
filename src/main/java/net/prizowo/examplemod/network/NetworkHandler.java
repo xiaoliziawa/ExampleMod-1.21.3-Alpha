@@ -19,10 +19,5 @@ public class NetworkHandler {
             SwarmTriggerPacket::handle
         );
 
-        registrar.playToClient(
-            OrbitalRenderPacket.TYPE,
-            OrbitalRenderPacket.STREAM_CODEC,
-            OrbitalRenderPacket::handle
-        );
     }
 } 
