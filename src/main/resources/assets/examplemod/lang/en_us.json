@@ -2,5 +2,9 @@
   "mixin.example.join_world": "Join Latest World",
   "key.examplemod.descend": "Descend",
   "key.categories.examplemod": "Example Mod",
-  "block.examplemod.orbital_block": "Orbital Block"
+  "block.examplemod.orbital_block": "Orbital Block",
+  "block.examplemod.binary_black_hole_block": "Binary Black Hole Block",
+  "itemGroup.examplemod": "Example Mod",
+  "item.examplemod.orbital_block": "Orbital Block",
+  "item.examplemod.binary_black_hole_block": "Black Hole Block"
 }

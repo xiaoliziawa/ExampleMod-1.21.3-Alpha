@@ -1,6 +1,7 @@
 package net.prizowo.examplemod.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -63,15 +64,15 @@ public class OrbitalBlockEntityRenderer implements BlockEntityRenderer<OrbitalBl
                       @NotNull MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
         poseStack.pushPose();
         
-        // 渲染太阳 - 固定在中心自转
+        // 渲染太阳
         poseStack.pushPose();
-        // 1. 移动到方块中心
+        // 1. 移动
         poseStack.translate(0.5, 0.5, 0.5);
         // 2. 缩放
         poseStack.scale(2.5f, 2.5f, 2.5f);
         // 3. 移动使方块中心对齐
         poseStack.translate(-0.5, -0.5, -0.5);
-        // 4. 在原地自转
+        // 4. 原地自转
         poseStack.translate(0.5, 0.5, 0.5);
         poseStack.mulPose(Axis.YP.rotationDegrees(blockEntity.getSunRotation()));
         poseStack.translate(-0.5, -0.5, -0.5);
@@ -130,7 +131,7 @@ public class OrbitalBlockEntityRenderer implements BlockEntityRenderer<OrbitalBl
             poseStack.scale(scale, scale, scale);
             poseStack.translate(-0.5, -0.5, -0.5);
             
-            // 使用圆石渲染小行星
+            // 使用原石渲染小行星
             Minecraft.getInstance().getBlockRenderer().renderSingleBlock(
                 Blocks.COBBLESTONE.defaultBlockState(), 
                 poseStack, bufferSource, packedLight, packedOverlay);
@@ -150,7 +151,7 @@ public class OrbitalBlockEntityRenderer implements BlockEntityRenderer<OrbitalBl
         
         poseStack.translate(x, 0, z);
         
-        // 渲染彗星（使用冰方块）
+        // 渲染彗星（使用冰块）
         float cometScale = 0.3f;
         poseStack.scale(cometScale, cometScale, cometScale);
         poseStack.translate(-0.5, -0.5, -0.5);
@@ -164,7 +165,7 @@ public class OrbitalBlockEntityRenderer implements BlockEntityRenderer<OrbitalBl
         poseStack.popPose();
     }
 
-    // 简化renderBlock方法，只用于行星渲染
+    // 行星渲染方法
     private void renderBlock(PoseStack poseStack, MultiBufferSource bufferSource, 
                              BlockState state, float scale, int packedLight, int packedOverlay) {
         poseStack.pushPose();

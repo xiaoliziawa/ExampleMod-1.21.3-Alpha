@@ -3,7 +3,11 @@
   "key.examplemod.descend": "下降",
   "key.categories.examplemod": "示例模组",
   "block.examplemod.orbital_block": "轨道方块",
+  "block.examplemod.binary_black_hole_block": "双黑洞方块",
   "key.categories.orbital": "太阳系模型",
   "key.orbital.speed_down": "减速",
-  "key.orbital.speed_up": "加速"
+  "key.orbital.speed_up": "加速",
+  "itemGroup.examplemod": "示例模组",
+  "item.examplemod.orbital_block": "轨道方块",
+  "item.examplemod.binary_black_hole_block": "黑洞方块"
 }

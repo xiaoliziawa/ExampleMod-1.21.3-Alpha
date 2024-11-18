@@ -16,7 +16,6 @@ public class ModEvents {
     public static void onLeftClickEmpty(PlayerInteractEvent.LeftClickEmpty event) {
         Player player = event.getEntity();
         if (player.level().isClientSide && player.getVehicle() instanceof RideableBee) {
-            // 使用正确的发包方法
             PacketDistributor.sendToServer(new SwarmTriggerPacket());
         }
     }

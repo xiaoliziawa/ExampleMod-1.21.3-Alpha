@@ -13,6 +13,7 @@ import net.prizowo.examplemod.init.ModBlocks;
 import net.prizowo.examplemod.init.ModItems;
 import net.prizowo.examplemod.network.NetworkHandler;
 import net.prizowo.examplemod.registry.entity.ModEntityTypes;
+import net.prizowo.examplemod.init.ModCreativeModeTabs;
 
 @Mod(Examplemod.MODID)
 public class Examplemod {
@@ -23,6 +24,7 @@ public class Examplemod {
         ModBlockEntities.register(modEventBus);
         ModItems.register(modEventBus);
         ModEntityTypes.ENTITY_TYPES.register(modEventBus);
+        ModCreativeModeTabs.register(modEventBus);
         modEventBus.addListener(this::registerEntityAttributes);
         modEventBus.register(NetworkHandler.class);
 
