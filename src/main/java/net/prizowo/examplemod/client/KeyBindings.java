@@ -30,4 +30,12 @@ public class KeyBindings {
             GLFW.GLFW_KEY_M,
             "key.categories.orbital"
     );
+
+    public static final KeyMapping TOGGLE_HEALTH_BAR = new KeyMapping(
+            "key.examplemod.toggle_health_bar",
+            KeyConflictContext.IN_GAME,
+            InputConstants.Type.KEYSYM,
+            GLFW.GLFW_KEY_P,
+            "key.categories.examplemod"
+    );
 } 

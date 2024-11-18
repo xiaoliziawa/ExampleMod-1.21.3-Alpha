@@ -1,0 +1,46 @@
+{
+  "anvil_cost": 8,
+  "description": {
+    "translate": "enchantment.examplemod.evil"
+  },
+  "effects": {
+    "minecraft:post_attack": [
+      {
+        "affected": "victim",
+        "effect": {
+          "type": "minecraft:all_of",
+          "effects": [
+            {
+              "type": "examplemod:apply_evil",
+              "amplifier": {
+                "type": "minecraft:linear",
+                "base": 1.0,
+                "per_level_above_first": 1.0
+              },
+              "duration": 400.0
+            }
+          ]
+        },
+        "enchanted": "attacker",
+        "requirements": {
+          "chance": 1.0,
+          "condition": "minecraft:random_chance"
+        }
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 15,
+    "per_level_above_first": 10
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 10
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#minecraft:enchantable/sword",
+  "weight": 1
+}

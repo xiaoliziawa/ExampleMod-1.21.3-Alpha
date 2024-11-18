@@ -31,5 +31,6 @@ public class ClientSetup {
         event.register(KeyBindings.DESCEND_KEY);
         event.register(KeyBindings.SPEED_UP);
         event.register(KeyBindings.SPEED_DOWN);
+        event.register(KeyBindings.TOGGLE_HEALTH_BAR);
     }
 } 

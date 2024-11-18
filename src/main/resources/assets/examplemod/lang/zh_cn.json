@@ -9,5 +9,10 @@
   "key.orbital.speed_up": "加速",
   "itemGroup.examplemod": "示例模组",
   "item.examplemod.orbital_block": "轨道方块",
-  "item.examplemod.binary_black_hole_block": "黑洞方块"
+  "item.examplemod.binary_black_hole_block": "黑洞方块",
+  "enchantment.examplemod.evil": "邪恶",
+  "enchantment.examplemod.evil.desc": "击中敌人时使其受到多种负面效果",
+  "effect.examplemod.evil": "邪恶",
+  "effect.examplemod.evil.description": "减速并造成多种负面效果",
+  "key.examplemod.toggle_health_bar": "切换血条显示"
 }

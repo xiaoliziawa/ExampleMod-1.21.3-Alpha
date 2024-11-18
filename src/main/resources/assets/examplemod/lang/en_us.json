@@ -6,5 +6,9 @@
   "block.examplemod.binary_black_hole_block": "Binary Black Hole Block",
   "itemGroup.examplemod": "Example Mod",
   "item.examplemod.orbital_block": "Orbital Block",
-  "item.examplemod.binary_black_hole_block": "Black Hole Block"
+  "item.examplemod.binary_black_hole_block": "Black Hole Block",
+  "enchantment.examplemod.evil": "Evil",
+  "enchantment.examplemod.evil.desc": "Applies multiple negative effects on hit",
+  "effect.examplemod.evil": "Evil",
+  "effect.examplemod.evil.description": "Slows and applies multiple negative effects"
 }
