@@ -22,7 +22,7 @@ public class OrbitalBlockEntity extends BlockEntity {
 
     public OrbitalBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ORBITAL_BLOCK_ENTITY.get(), pos, state);
-        
+
         // 初始化小行星带
         float asteroidBeltRadius = 12.0f;
         float beltWidth = 1.0f;
@@ -82,8 +82,8 @@ public class OrbitalBlockEntity extends BlockEntity {
         private float rotation;       // 自转角度
         private final float rotationSpeed;
 
-        public Planet(float height, float orbitRadius, float speed, 
-                     float size, float tilt, float rotationPeriod) {
+        public Planet(float height, float orbitRadius, float speed,
+                      float size, float tilt, float rotationPeriod) {
             this.angle = (float) (Math.random() * Math.PI * 2);
             this.height = height;
             this.orbitRadius = orbitRadius;
@@ -160,8 +160,8 @@ public class OrbitalBlockEntity extends BlockEntity {
 
         public void tick(float speedMultiplier) {
             angle = (float) ((angle + speed * speedMultiplier) % (Math.PI * 2));
-            currentRadius = (float) (minRadius + (maxRadius - minRadius) * 
-                (1 + Math.cos(angle)) / 2);
+            currentRadius = (float) (minRadius + (maxRadius - minRadius) *
+                    (1 + Math.cos(angle)) / 2);
         }
 
         public float getAngle() { return angle; }

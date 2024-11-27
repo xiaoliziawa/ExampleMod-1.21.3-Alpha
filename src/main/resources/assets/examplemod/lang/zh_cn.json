@@ -14,5 +14,6 @@
   "enchantment.examplemod.evil.desc": "击中敌人时使其受到多种负面效果",
   "effect.examplemod.evil": "邪恶",
   "effect.examplemod.evil.description": "减速并造成多种负面效果",
-  "key.examplemod.toggle_health_bar": "切换血条显示"
+  "key.examplemod.toggle_health_bar": "切换血条显示",
+  "message.examplemod.create_installed": "你安装了Create机械动力模组！"
 }

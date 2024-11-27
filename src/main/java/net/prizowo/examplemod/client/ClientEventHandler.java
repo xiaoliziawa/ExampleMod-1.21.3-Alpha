@@ -12,11 +12,10 @@ public class ClientEventHandler {
     @SubscribeEvent
     public static void onClientTick(ClientTickEvent.Post event) {
         while (KeyBindings.SPEED_DOWN.consumeClick()) {
-            OrbitalBlockEntity.adjustSpeedMultiplier(0.5f);  // 减速一半
+            OrbitalBlockEntity.adjustSpeedMultiplier(0.5f);
         }
         while (KeyBindings.SPEED_UP.consumeClick()) {
-            OrbitalBlockEntity.adjustSpeedMultiplier(2.0f);  // 加速一倍
+            OrbitalBlockEntity.adjustSpeedMultiplier(2.0f);
         }
     }
-
-} 
+}

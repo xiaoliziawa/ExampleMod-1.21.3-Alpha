@@ -26,18 +26,15 @@ public class Examplemod {
     private static final Logger LOGGER = LoggerFactory.getLogger("ExampleMod");
 
     public Examplemod(IEventBus modEventBus) {
-        LOGGER.info("Initializing ExampleMod");
-        
+
         ModBlocks.register(modEventBus);
         ModBlockEntities.register(modEventBus);
         ModItems.register(modEventBus);
         ModEntityTypes.ENTITY_TYPES.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
         
-        LOGGER.info("Registering enchantment effects");
         ModEnchantmentEffects.ENTITY_EFFECTS.register(modEventBus);
         
-        LOGGER.info("Registering effects");
         ModEffects.register(modEventBus);
         
         modEventBus.addListener(this::registerEntityAttributes);
@@ -46,7 +43,6 @@ public class Examplemod {
         if (FMLEnvironment.dist == Dist.CLIENT) {
             modEventBus.register(ClientSetup.class);
         }
-        LOGGER.info("ExampleMod initialization complete");
     }
     
     private void registerEntityAttributes(EntityAttributeCreationEvent event) {

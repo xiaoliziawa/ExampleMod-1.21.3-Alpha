@@ -38,4 +38,5 @@ public class KeyBindings {
             GLFW.GLFW_KEY_P,
             "key.categories.examplemod"
     );
+
 } 
